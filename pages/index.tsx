@@ -202,13 +202,13 @@ const Home: NextPage = () => {
               onChange={e => setInput(e.target.value.split(" ").join(""))}
             />
           </div>
-            {mounted && isConnected && !isMinted && (
+            {mounted && (
               <button
                 style={{ marginTop: 24 }}
                 //disabled={!mint || isMintLoading || isMintStarted}
                 className="button"
-                data-mint-loading={isMintLoading}
-                data-mint-started={isMintStarted}
+                //data-mint-loading={isMintLoading}
+                //data-mint-started={isMintStarted}
                 onClick={() => console.log(results())}
               >
                 {'Bulk Search'}
@@ -217,10 +217,9 @@ const Home: NextPage = () => {
             <br></br>
             {ret}
             <br></br>
-            {mounted && isConnected && !isMinted && (
+            {mounted && (
               <button
                 style={{ marginTop: 24 }}
-                //disabled={!mint || isMintLoading || isMintStarted}
                 className="button"
                 data-mint-loading={isMintLoading}
                 data-mint-started={isMintStarted}
@@ -232,33 +231,33 @@ const Home: NextPage = () => {
               </button>
             )}
             <br></br>
-            {mounted && isConnected && !isMinted && (
+            {mounted && (
               <button
                 style={{ marginTop: 24 }}
                 //disabled={!mint || isMintLoading || isMintStarted}
                 className="button"
-                data-mint-loading={isMintLoading}
-                data-mint-started={isMintStarted}
+                data-mint-loading={isWrapLoading}
+                data-mint-started={isWrapStarted}
                 onClick={() => wrap?.()}
               >
-                {isMintLoading && 'Waiting for approval'}
-                {isMintStarted && 'Minting...'}
-                {!isMintLoading && !isMintStarted && 'Wrap Your Existing Names'}
+                {isWrapLoading && 'Waiting for approval'}
+                {isWrapStarted && 'Wrapping...'}
+                {!isWrapLoading && !isWrapStarted && 'Wrap Your Existing Names'}
               </button>
             )}
             <br></br>
-            {mounted && isConnected && !isMinted && (
+            {mounted && (
               <button
                 style={{ marginTop: 24 }}
                 //disabled={!mint || isMintLoading || isMintStarted}
                 className="button"
-                data-mint-loading={isMintLoading}
-                data-mint-started={isMintStarted}
+                data-mint-loading={isTransLoading}
+                data-mint-started={isTransStarted}
                 onClick={() => trans()}
               >
-                {isMintLoading && 'Waiting for approval'}
-                {isMintStarted && 'Minting...'}
-                {!isMintLoading && !isMintStarted && 'Deposit Names to Wrapper'}
+                {isTransLoading && 'Waiting for approval'}
+                {isTransStarted && 'Sending..'}
+                {!isTransLoading && !isTransStarted && 'Deposit Names to Wrapper'}
               </button>
             )}
           </div>
